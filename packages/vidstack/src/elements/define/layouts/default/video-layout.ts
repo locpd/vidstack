@@ -1,27 +1,23 @@
 import { html } from 'lit-html';
 import { computed } from 'maverick.js';
 
+
+
 import { useDefaultLayoutContext } from '../../../../components/layouts/default/context';
 import { useMediaState } from '../../../../core/api/media-context';
 import { $signal } from '../../../lit/directives/signal';
 import { DefaultAnnouncer } from './ui/announcer';
-import {
-  DefaultAirPlayButton,
-  DefaultCaptionButton,
-  DefaultDownloadButton,
-  DefaultFullscreenButton,
-  DefaultGoogleCastButton,
-  DefaultPIPButton,
-  DefaultPlayButton,
-} from './ui/buttons';
+import { DefaultAirPlayButton, DefaultDownloadButton, DefaultFullscreenButton, DefaultPIPButton, DefaultPlayButton, DefaultSeekButton } from './ui/buttons';
 import { DefaultCaptions } from './ui/captions';
 import { DefaultControlsSpacer } from './ui/controls';
 import { DefaultKeyboardDisplay } from './ui/keyboard-display';
+import { DefaultCaptionsMenu } from './ui/menu/captions-menu';
 import { DefaultChaptersMenu } from './ui/menu/chapters-menu';
 import { DefaultSettingsMenu } from './ui/menu/settings-menu';
 import { DefaultTimeSlider, DefaultVolumePopup } from './ui/slider';
 import { DefaultTimeInfo } from './ui/time';
 import { DefaultTitle } from './ui/title';
+
 
 export function DefaultVideoLayoutLarge() {
   return [
@@ -47,13 +43,13 @@ export function DefaultVideoLayoutLarge() {
             <media-controls-group class="vds-controls-group">
               ${[
                 DefaultPlayButton({ tooltip: 'top start' }),
+                DefaultSeekButton({ backward: true, tooltip: 'top' }),
+                DefaultSeekButton({ backward: false, tooltip: 'top' }),
                 DefaultVolumePopup({ orientation: 'horizontal', tooltip: 'top' }),
                 DefaultTimeInfo(),
                 DefaultTitle(),
-                DefaultCaptionButton({ tooltip: 'top' }),
                 DefaultBottomMenuGroup(),
                 DefaultAirPlayButton({ tooltip: 'top' }),
-                DefaultGoogleCastButton({ tooltip: 'top' }),
                 DefaultDownloadButton(),
                 DefaultPIPButton(),
                 DefaultFullscreenButton({ tooltip: 'top end' }),
@@ -97,9 +93,7 @@ export function DefaultVideoLayoutSmall() {
         <media-controls-group class="vds-controls-group">
           ${[
             DefaultAirPlayButton({ tooltip: 'top start' }),
-            DefaultGoogleCastButton({ tooltip: 'bottom start' }),
             DefaultControlsSpacer(),
-            DefaultCaptionButton({ tooltip: 'bottom' }),
             DefaultDownloadButton(),
             DefaultVideoMenus(),
             DefaultVolumePopup({ orientation: 'vertical', tooltip: 'bottom end' }),
@@ -169,6 +163,7 @@ function DefaultVideoMenus() {
 
   return [
     DefaultChaptersMenu({ tooltip: $tooltip, placement: $placement, portal: true }),
+    DefaultCaptionsMenu({ tooltip: $tooltip, placement: $placement, portal: true }),
     DefaultSettingsMenu({ tooltip: $tooltip, placement: $placement, portal: true }),
   ];
 }

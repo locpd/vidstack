@@ -1,11 +1,14 @@
 import { Component } from 'maverick.js';
 import { DOMEvent } from 'maverick.js/std';
 
+
+
 import type { ScreenOrientationLockType } from '../..';
 import type { MediaPlayer } from '../../components/player';
 import { Logger } from '../../foundation/logger/controller';
 import type { MediaFullscreenRequestTarget, MediaRequestEvents } from '../api/media-request-events';
 import { isTrackCaptionKind } from '../tracks/text/text-track';
+
 
 /**
  * A simple facade for dispatching media requests to the nearest media player element.
@@ -524,6 +527,10 @@ export class MediaRemoteControl {
 
   userPrefersLoopChange(prefersLoop: boolean, trigger?: Event) {
     this.#dispatchRequest('media-user-loop-change-request', trigger, prefersLoop);
+  }
+
+  userDualCaptionChange(prefersSeparation: boolean, trigger?: Event) {
+    this.#dispatchRequest('media-user-dual-captions-change-request', trigger, prefersSeparation);
   }
 
   #dispatchRequest<EventType extends keyof MediaRequestEvents>(

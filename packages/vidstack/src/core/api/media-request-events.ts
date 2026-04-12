@@ -16,6 +16,7 @@ export interface MediaRequestEvents {
   'media-live-edge-request': MediaLiveEdgeRequestEvent;
   'media-loop-request': MediaLoopRequestEvent;
   'media-user-loop-change-request': MediaUserLoopChangeRequestEvent;
+  'media-user-dual-captions-change-request': MediaUserDualCaptionsChangeRequestEvent;
   'media-orientation-lock-request': MediaOrientationLockRequestEvent;
   'media-orientation-unlock-request': MediaOrientationUnlockRequestEvent;
   'media-mute-request': MediaMuteRequestEvent;
@@ -305,6 +306,14 @@ export interface MediaLoopRequestEvent extends DOMEvent<void> {}
  * @composed
  */
 export interface MediaUserLoopChangeRequestEvent extends DOMEvent<boolean> {}
+
+/**
+ * Fired when the user dual captions preference changes.
+ *
+ * @bubbles
+ * @composed
+ */
+export interface MediaUserDualCaptionsChangeRequestEvent extends DOMEvent<boolean> {}
 
 /**
  * Fired when requesting the screen orientation to be locked to a certain type.

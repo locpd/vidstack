@@ -10,11 +10,11 @@ import { updateFontCssVars } from '../../../../../../core/font/font-vars';
 import { $signal } from '../../../../../lit/directives/signal';
 import { IconSlot } from '../../slots';
 import { $i18n } from '../utils';
-import { DefaultAccessibilityMenu } from './accessibility-menu';
-import { DefaultAudioMenu } from './audio-menu';
-import { DefaultCaptionsMenu } from './captions-menu';
+import { DefaultDualCaptionsMenuCheckbox } from './dual-captions-menu';
+import { DefaultFontMenu } from './font-menu';
 import { MenuPortal } from './menu-portal';
-import { DefaultPlaybackMenu } from './playback-menu';
+import { DefaultSpeedMenuSection } from './speed-menu';
+
 
 export function DefaultSettingsMenu({
   placement,
@@ -63,12 +63,7 @@ export function DefaultSettingsMenu({
             return null;
           }
 
-          return [
-            DefaultPlaybackMenu(),
-            DefaultAccessibilityMenu(),
-            DefaultAudioMenu(),
-            DefaultCaptionsMenu(),
-          ];
+          return [DefaultSpeedMenuSection(), DefaultFontMenu(), DefaultDualCaptionsMenuCheckbox()];
         })}
       </media-menu-items>
     `;

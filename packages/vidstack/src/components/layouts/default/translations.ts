@@ -1,5 +1,9 @@
 import type { ReadSignal } from 'maverick.js';
 
+
+
+
+
 export type DefaultLayoutWord =
   | 'Announcements'
   | 'Accessibility'
@@ -56,7 +60,8 @@ export type DefaultLayoutWord =
   | 'Text Background'
   | 'Track'
   | 'Unmute'
-  | 'Volume';
+  | 'Volume'
+  | 'Dual Captions Separation';
 
 export type DefaultLayoutTranslations = {
   [word in DefaultLayoutWord]: string;
