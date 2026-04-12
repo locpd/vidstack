@@ -224,6 +224,7 @@ export const mediaState = new State<MediaState>({
   inferredTitle: '',
   providedLoop: false,
   userPrefersLoop: false,
+  userPrefersDualCaptionSeparation: false,
   providedPoster: '',
   inferredPoster: '',
   inferredViewType: 'unknown',
@@ -886,6 +887,8 @@ export interface MediaState {
   providedLoop: boolean;
   /** @internal */
   userPrefersLoop: boolean;
+  /** @internal */
+  userPrefersDualCaptionSeparation: boolean;
   /** @internal - Unclipped current time. */
   realCurrentTime: number;
   /** @internal */

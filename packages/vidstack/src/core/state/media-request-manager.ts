@@ -1,10 +1,9 @@
 import { effect, peek, type ReadSignal } from 'maverick.js';
 import { EventsController, isUndefined } from 'maverick.js/std';
 
-import {
-  FullscreenController,
-  type FullscreenAdapter,
-} from '../../foundation/fullscreen/controller';
+
+
+import { FullscreenController, type FullscreenAdapter } from '../../foundation/fullscreen/controller';
 import { ScreenOrientationController } from '../../foundation/orientation/controller';
 import { Queue } from '../../foundation/queue/queue';
 import { RequestQueue } from '../../foundation/queue/request-queue';
@@ -23,6 +22,7 @@ import { MediaPlayerController } from '../api/player-controller';
 import { boundTime } from '../api/player-state';
 import { MediaControls } from '../controls';
 import type { MediaStateManager } from './media-state-manager';
+
 
 /**
  * This class is responsible for listening to media request events and calling the appropriate
@@ -699,6 +699,10 @@ export class MediaRequestManager extends MediaPlayerController implements MediaR
 
   ['media-user-loop-change-request'](event: RE.MediaUserLoopChangeRequestEvent) {
     this.$state.userPrefersLoop.set(event.detail);
+  }
+
+  ['media-user-dual-captions-change-request'](event: RE.MediaUserDualCaptionsChangeRequestEvent) {
+    this.$state.userPrefersDualCaptionSeparation.set(event.detail);
   }
 
   async ['media-pause-request'](event: RE.MediaPauseRequestEvent) {
