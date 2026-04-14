@@ -2,7 +2,7 @@
   "$schema": "https://turborepo.org/schema.json",
   "tasks": {
     "analyze": {
-      "dependsOn": ["clean", "@locpd/vidstack#patch-maverick"],
+      "dependsOn": ["clean"],
       "outputs": [
         "dist-npm/analyze.json",
         "dist-npm/vscode.html-data.json",
@@ -10,9 +10,6 @@
         "dist-npm/svelte.d.ts",
         "dist-npm/solid.d.ts"
       ]
-    },
-    "patch-maverick": {
-      "cache": false
     },
     "build": {
       "dependsOn": ["clean", "^build"],

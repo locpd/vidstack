@@ -57,7 +57,7 @@
     "tsx": "^4.16.5",
     "type-fest": "^3.13.1",
     "typescript": "^5.6.0",
-    "@locpd/vidstack": "workspace:*",
+    "@nastar/vidstack": "workspace:*",
     "vite": "^5.3.5"
   },
   "contributors": [
