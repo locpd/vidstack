@@ -69,10 +69,6 @@ export function DefaultFontMenu() {
               children: [DefaultTextBgInput(), DefaultTextBgOpacitySlider()],
             }),
             DefaultMenuSection({
-              label: $i18n(translations, 'Display Background'),
-              children: [DefaultDisplayBgInput(), DefaultDisplayOpacitySlider()],
-            }),
-            DefaultMenuSection({
               children: [DefaultResetMenuItem()],
             }),
           ]}
