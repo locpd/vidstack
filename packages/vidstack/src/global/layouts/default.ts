@@ -4,7 +4,7 @@ import type { VidstackPlayerLayoutLoader } from './loader';
 export class VidstackPlayerLayout implements VidstackPlayerLayoutLoader {
   constructor(readonly props?: Partial<DefaultLayoutProps>) {}
 
-  readonly name = 'vidstack';
+  readonly name = '@nastar/vidstack';
 
   async load() {
     await import('../../elements/bundles/player-layouts/default');

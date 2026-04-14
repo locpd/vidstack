@@ -9,7 +9,7 @@ import type { ViteDevServer } from 'vite';
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 const defaultIncludePattern = /\.(jsx|tsx|html|vue|svelte)/,
-  bundleModuleId = 'vidstack/bundle',
+  bundleModuleId = '@nastar/vidstack/bundle',
   mediaElementPrefix = 'media-',
   defaultThemeClassPrefix = 'vds-',
   elementsFilePath = path.resolve(__dirname, './elements.json'),
@@ -36,7 +36,7 @@ const defaultStyles = {
 };
 
 for (const name of Object.keys(defaultStyles)) {
-  defaultStyles[name] = `vidstack/player/styles/default/${defaultStyles[name]}`;
+  defaultStyles[name] = `@nastar/vidstack/player/styles/default/${defaultStyles[name]}`;
 }
 
 interface GraphData {
@@ -293,31 +293,31 @@ function generateBundleImports({
     hasDefaultLayout = defaultAudioLayout || defaultVideoLayout;
 
   if (!hasDefaultLayout) {
-    styles.push('import "vidstack/player/styles/base.css";');
+    styles.push('import "@nastar/vidstack/player/styles/base.css";');
     if (plyrLayout) {
-      styles.push('import "vidstack/player/styles/plyr/theme.css";');
-      imports.push('import "vidstack/player/layouts/plyr";');
+      styles.push('import "@nastar/vidstack/player/styles/plyr/theme.css";');
+      imports.push('import "@nastar/vidstack/player/layouts/plyr";');
     }
   } else {
-    styles.push(`import "vidstack/player/styles/default/theme.css";`);
+    styles.push(`import "@nastar/vidstack/player/styles/default/theme.css";`);
 
     if (plyrLayout) {
-      styles.push(`import "vidstack/player/styles/plyr/theme.css";`);
+      styles.push(`import "@nastar/vidstack/player/styles/plyr/theme.css";`);
     }
 
     if (defaultAudioLayout) {
-      styles.push(`import "vidstack/player/styles/default/layouts/audio.css";`);
+      styles.push(`import "@nastar/vidstack/player/styles/default/layouts/audio.css";`);
     }
 
     if (defaultVideoLayout) {
-      styles.push(`import "vidstack/player/styles/default/layouts/video.css";`);
+      styles.push(`import "@nastar/vidstack/player/styles/default/layouts/video.css";`);
     }
 
-    imports.push(`import "vidstack/player/layouts${!plyrLayout ? '/default' : ''}";`);
-    imports.push('import "vidstack/player/ui";');
+    imports.push(`import "@nastar/vidstack/player/layouts${!plyrLayout ? '/default' : ''}";`);
+    imports.push('import "@nastar/vidstack/player/ui";');
   }
 
-  return [...styles, 'import "vidstack/player";', ...imports].join('\n');
+  return [...styles, 'import "@nastar/vidstack/player";', ...imports].join('\n');
 }
 
 function generateElementImports(
@@ -344,7 +344,7 @@ function generateElementImports(
   if (elementClasses.size === 0) return imports.join('\n');
 
   const elementImports = ['defineCustomElement', ...elementClasses];
-  imports.push(`import {\n${elementImports.join(',\n')}\n} from "vidstack/elements";`);
+  imports.push(`import {\n${elementImports.join(',\n')}\n} from "@nastar/vidstack/elements";`);
 
   const definitions = [...elementClasses].map((name) => `defineCustomElement(${name});`);
 
