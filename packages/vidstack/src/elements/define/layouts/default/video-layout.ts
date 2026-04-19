@@ -95,6 +95,8 @@ export function DefaultVideoLayoutSmall() {
             DefaultAirPlayButton({ tooltip: 'top start' }),
             DefaultControlsSpacer(),
             DefaultDownloadButton(),
+            DefaultSeekButton({ backward: true, tooltip: 'top' }),
+            DefaultSeekButton({ backward: false, tooltip: 'top' }),
             DefaultVideoMenus(),
             DefaultVolumePopup({ orientation: 'vertical', tooltip: 'bottom end' }),
           ]}

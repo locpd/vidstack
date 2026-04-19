@@ -1,6 +1,6 @@
 {
   "name": "@nastar/vidstack",
-  "version": "1.12.14",
+  "version": "1.12.15",
   "description": "UI component library for building high-quality, accessible video and audio experiences on the web.",
   "license": "MIT",
   "type": "module",
